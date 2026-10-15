@@ -98,7 +98,7 @@ export function guideHead(volume: Volume) {
   const base = pageHead(volume.seo.title, volume.seo.description);
   const url = absoluteUrl(volume.pageUrl);
   return {
-    meta: [...base.meta, { property: "og:type", content: "article" }, { property: "og:url", content: url }].filter((m, i, all) => !("property" in m && m.property === "og:type" && m.content === "website" && all.some(o => "property" in o && o.property === "og:type" && o.content === "article"))),
+    meta: [...base.meta.map(m => ("property" in m && m.property === "og:type" ? { property: "og:type", content: "article" } : m)), { property: "og:url", content: url }],
     links: [{ rel: "canonical", href: url }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify({
       "@context": "https://schema.org", "@type": "BreadcrumbList",
