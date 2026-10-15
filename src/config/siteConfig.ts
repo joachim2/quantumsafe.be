@@ -76,8 +76,14 @@ export const siteConfig = {
   placeholderMessage: "Content for this page will be developed in a later round.",
 };
 
-export function isConfiguredUrl(url: string): boolean {
+/** Absolute origin used for canonical URLs, sitemap and structured data. */
+export const siteUrl = "https://quantumsafe.be";
+
+export function isConfiguredUrl(url: string | null | undefined): url is string {
   return Boolean(url && !url.includes("[") && !url.includes("]") && (/^https?:\/\//.test(url) || /^\/(?!\/)/.test(url)));
+}
+export function absoluteUrl(path: string) {
+  return `${siteUrl}${path === "/" ? "" : path}`;
 }
 export function pageHead(title: string, description = siteConfig.description) {
   const pageTitle = `${title} | ${siteConfig.title}`;
@@ -87,3 +93,21 @@ export function pageHead(title: string, description = siteConfig.description) {
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ] };
 }
+/** Head metadata for a canonical guide page: unique SEO, absolute canonical and breadcrumb JSON-LD. */
+export function guideHead(volume: Volume) {
+  const base = pageHead(volume.seo.title, volume.seo.description);
+  const url = absoluteUrl(volume.pageUrl);
+  return {
+    meta: [...base.meta, { property: "og:type", content: "article" }, { property: "og:url", content: url }].filter((m, i, all) => !("property" in m && m.property === "og:type" && m.content === "website" && all.some(o => "property" in o && o.property === "og:type" && o.content === "article"))),
+    links: [{ rel: "canonical", href: url }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify({
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+        { "@type": "ListItem", position: 2, name: `${volume.volumeLabel}: ${volume.title}`, item: url },
+      ],
+    }) }],
+  };
+}
+/** Canonical, indexable pages for the sitemap. Topic aliases are excluded on purpose. */
+export const sitemapPaths = ["/", ...volumes.map(v => v.pageUrl), "/resources", "/about"];
