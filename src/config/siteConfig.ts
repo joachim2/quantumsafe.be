@@ -1,12 +1,34 @@
 import coalitionLogo from "@/assets/logo_csc_png.png.asset.json";
 import quantumLogo from "@/assets/quantum_circle_logo_2024_pos.svg.asset.json";
 
+export type GuideStatus = "published" | "draft";
+export type VolumeDefinition = {
+  id: "volume-1" | "volume-2" | "volume-3";
+  number: "01" | "02" | "03";
+  volumeLabel: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  /** Short audience sentence used on homepage cards. */
+  audience: string;
+  /** Audience chips used on the guide page. */
+  audienceList: readonly string[];
+  version: string;
+  status: GuideStatus;
+  publicationLabel: string;
+  pageUrl: string;
+  /** Independent PDF destination. Null until a real PDF is published. */
+  pdfUrl: string | null;
+  theme: "understand" | "plan" | "implement";
+  seo: { title: string; description: string };
+};
+
 export const volumes = [
-  { number: "01", title: "Preparing for the Quantum Era", description: "Understand the quantum threat, the strategic urgency of post-quantum cryptography, potential timelines and the first steps towards quantum readiness.", audience: "Decision-makers and organisational leaders.", pageUrl: "/guides/preparing-for-the-quantum-era", pdfUrl: "[VOLUME_01_PDF_URL]", theme: "understand" },
-  { number: "02", title: "Managing the PQC Transition", description: "Explore governance, responsibilities, risk management, planning and investment considerations for a structured transition to post-quantum cryptography.", audience: "Security, risk and compliance teams, project managers and transition coordinators.", pageUrl: "/guides/managing-the-pqc-transition", pdfUrl: "[VOLUME_02_PDF_URL]", theme: "plan" },
-  { number: "03", title: "Implementing the PQC Migration", description: "Discover the technical considerations involved in migration, including algorithms, architecture, interoperability, testing and operational implementation.", audience: "Engineers, developers, IT architects and IT operations teams.", pageUrl: "/guides/implementing-the-pqc-migration", pdfUrl: "[VOLUME_03_PDF_URL]", theme: "implement" },
-] as const;
-export type Volume = typeof volumes[number];
+  { id: "volume-1", number: "01", volumeLabel: "Volume 01", title: "Preparing for the Quantum Era", subtitle: "Updated Strategic Guidance", description: "Understand the quantum threat, the strategic urgency of post-quantum cryptography, potential timelines and the first steps towards quantum readiness.", audience: "Decision-makers and organisational leaders.", audienceList: ["Decision-makers", "Executives", "CIOs", "CISOs", "IT leaders"], version: "Updated edition", status: "published", publicationLabel: "Published guidance", pageUrl: "/guides/preparing-for-the-quantum-era", pdfUrl: null, theme: "understand", seo: { title: "Volume 1: Preparing for the Quantum Era", description: "Strategic PQC guidance for decision-makers: the quantum threat, EU migration milestones for 2026, 2030 and 2035, nine strategic recommendations and an executive action plan." } },
+  { id: "volume-2", number: "02", volumeLabel: "Volume 02", title: "Managing the PQC Transition", subtitle: "Governance, Planning and Investment", description: "Explore governance, responsibilities, risk management, planning and investment considerations for a structured transition to post-quantum cryptography.", audience: "Security, risk and compliance teams, project managers and transition coordinators.", audienceList: ["Security leadership", "GRC", "PMO", "Technical coordinators", "Procurement", "Audit"], version: "Version 3", status: "published", publicationLabel: "Published guidance", pageUrl: "/guides/managing-the-pqc-transition", pdfUrl: null, theme: "plan", seo: { title: "Volume 2: Managing the PQC Transition", description: "Governance, RACI, reference roadmap, business case, financial planning and risk-based prioritization for a structured post-quantum cryptography transition program." } },
+  { id: "volume-3", number: "03", volumeLabel: "Volume 03", title: "Implementing the PQC Migration", subtitle: "Technical and Migration Guidance", description: "Discover the technical considerations involved in migration, including algorithms, architecture, interoperability, testing and operational implementation.", audience: "Engineers, developers, IT architects and IT operations teams.", audienceList: ["Engineers", "Developers", "Architects", "Platform owners", "PKI and HSM teams", "IT operations"], version: "0.7", status: "draft", publicationLabel: "Draft - ready for review", pageUrl: "/guides/implementing-the-pqc-migration", pdfUrl: null, theme: "implement", seo: { title: "Volume 3 (Draft v0.7): Implementing the PQC Migration", description: "Draft v0.7 technical guidance for engineers and operations: hybrid TLS, PKI, HSMs, cryptographic inventory, crypto-agility, testing and migration waves. Ready for review." } },
+] as const satisfies readonly VolumeDefinition[];
+export type Volume = VolumeDefinition;
 export const routeAliases = {
   "/understand-pqc": volumes[0].pageUrl,
   "/plan-the-transition": volumes[1].pageUrl,
