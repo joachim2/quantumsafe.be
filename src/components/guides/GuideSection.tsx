@@ -29,10 +29,10 @@ function CardLink({ href, title }: { href: string; title: string }) {
   const inner = <>Read more<ArrowUpRight className="size-3.5" aria-hidden="true" /><span className="sr-only">: {title}</span></>;
   if (href.startsWith("#")) return <a className="card-link" href={href}>{inner}</a>;
   const [to, hash] = href.split("#");
-  return <Link className="card-link" to={to as "/"} hash={hash}>{inner}</Link>;
+  return <Link className="card-link" to={to as "/"} {...(hash ? { hash } : {})}>{inner}</Link>;
 }
 
-export function RecommendationGrid({ items, title, columns = 3, level }: { items: GuideCardItem[]; title?: string; columns?: 2 | 3; level: number }) {
+export function RecommendationGrid({ items, title, columns = 3, level }: { items: GuideCardItem[]; title?: string | undefined; columns?: 2 | 3 | undefined; level: number }) {
   const itemLevel = title ? level + 1 : level;
   return (
     <div className="guide-block">
@@ -58,7 +58,7 @@ export function GuideBlocks({ blocks, level }: { blocks: GuideBlock[]; level: nu
 function BlockView({ block, level }: { block: GuideBlock; level: number }) {
   switch (block.type) {
     case "prose":
-      return <>{block.paragraphs.map(text => <p key={text} className="guide-p">{text}</p>)}</>;
+      return <>{block.title && <Heading level={level} className="guide-h3">{block.title}</Heading>}{block.paragraphs.map(text => <p key={text} className="guide-p">{text}</p>)}</>;
     case "bullets": {
       const List = block.ordered ? "ol" : "ul";
       return (
