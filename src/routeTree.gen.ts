@@ -10,33 +10,144 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ImplementPqcRouteImport } from './routes/implement-pqc'
+import { Route as PlanTheTransitionRouteImport } from './routes/plan-the-transition'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as UnderstandPqcRouteImport } from './routes/understand-pqc'
+import { Route as GuidesImplementingThePqcMigrationRouteImport } from './routes/guides.implementing-the-pqc-migration'
+import { Route as GuidesManagingThePqcTransitionRouteImport } from './routes/guides.managing-the-pqc-transition'
+import { Route as GuidesPreparingForTheQuantumEraRouteImport } from './routes/guides.preparing-for-the-quantum-era'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImplementPqcRoute = ImplementPqcRouteImport.update({
+  id: '/implement-pqc',
+  path: '/implement-pqc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanTheTransitionRoute = PlanTheTransitionRouteImport.update({
+  id: '/plan-the-transition',
+  path: '/plan-the-transition',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnderstandPqcRoute = UnderstandPqcRouteImport.update({
+  id: '/understand-pqc',
+  path: '/understand-pqc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesImplementingThePqcMigrationRoute =
+  GuidesImplementingThePqcMigrationRouteImport.update({
+    id: '/guides/implementing-the-pqc-migration',
+    path: '/guides/implementing-the-pqc-migration',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesManagingThePqcTransitionRoute =
+  GuidesManagingThePqcTransitionRouteImport.update({
+    id: '/guides/managing-the-pqc-transition',
+    path: '/guides/managing-the-pqc-transition',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const GuidesPreparingForTheQuantumEraRoute =
+  GuidesPreparingForTheQuantumEraRouteImport.update({
+    id: '/guides/preparing-for-the-quantum-era',
+    path: '/guides/preparing-for-the-quantum-era',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/implement-pqc': typeof ImplementPqcRoute
+  '/plan-the-transition': typeof PlanTheTransitionRoute
+  '/resources': typeof ResourcesRoute
+  '/understand-pqc': typeof UnderstandPqcRoute
+  '/guides/implementing-the-pqc-migration': typeof GuidesImplementingThePqcMigrationRoute
+  '/guides/managing-the-pqc-transition': typeof GuidesManagingThePqcTransitionRoute
+  '/guides/preparing-for-the-quantum-era': typeof GuidesPreparingForTheQuantumEraRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/implement-pqc': typeof ImplementPqcRoute
+  '/plan-the-transition': typeof PlanTheTransitionRoute
+  '/resources': typeof ResourcesRoute
+  '/understand-pqc': typeof UnderstandPqcRoute
+  '/guides/implementing-the-pqc-migration': typeof GuidesImplementingThePqcMigrationRoute
+  '/guides/managing-the-pqc-transition': typeof GuidesManagingThePqcTransitionRoute
+  '/guides/preparing-for-the-quantum-era': typeof GuidesPreparingForTheQuantumEraRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/implement-pqc': typeof ImplementPqcRoute
+  '/plan-the-transition': typeof PlanTheTransitionRoute
+  '/resources': typeof ResourcesRoute
+  '/understand-pqc': typeof UnderstandPqcRoute
+  '/guides/implementing-the-pqc-migration': typeof GuidesImplementingThePqcMigrationRoute
+  '/guides/managing-the-pqc-transition': typeof GuidesManagingThePqcTransitionRoute
+  '/guides/preparing-for-the-quantum-era': typeof GuidesPreparingForTheQuantumEraRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/implement-pqc'
+    | '/plan-the-transition'
+    | '/resources'
+    | '/understand-pqc'
+    | '/guides/implementing-the-pqc-migration'
+    | '/guides/managing-the-pqc-transition'
+    | '/guides/preparing-for-the-quantum-era'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/implement-pqc'
+    | '/plan-the-transition'
+    | '/resources'
+    | '/understand-pqc'
+    | '/guides/implementing-the-pqc-migration'
+    | '/guides/managing-the-pqc-transition'
+    | '/guides/preparing-for-the-quantum-era'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/implement-pqc'
+    | '/plan-the-transition'
+    | '/resources'
+    | '/understand-pqc'
+    | '/guides/implementing-the-pqc-migration'
+    | '/guides/managing-the-pqc-transition'
+    | '/guides/preparing-for-the-quantum-era'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ImplementPqcRoute: typeof ImplementPqcRoute
+  PlanTheTransitionRoute: typeof PlanTheTransitionRoute
+  ResourcesRoute: typeof ResourcesRoute
+  UnderstandPqcRoute: typeof UnderstandPqcRoute
+  GuidesImplementingThePqcMigrationRoute: typeof GuidesImplementingThePqcMigrationRoute
+  GuidesManagingThePqcTransitionRoute: typeof GuidesManagingThePqcTransitionRoute
+  GuidesPreparingForTheQuantumEraRoute: typeof GuidesPreparingForTheQuantumEraRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +159,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/implement-pqc': {
+      id: '/implement-pqc'
+      path: '/implement-pqc'
+      fullPath: '/implement-pqc'
+      preLoaderRoute: typeof ImplementPqcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan-the-transition': {
+      id: '/plan-the-transition'
+      path: '/plan-the-transition'
+      fullPath: '/plan-the-transition'
+      preLoaderRoute: typeof PlanTheTransitionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/understand-pqc': {
+      id: '/understand-pqc'
+      path: '/understand-pqc'
+      fullPath: '/understand-pqc'
+      preLoaderRoute: typeof UnderstandPqcRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/implementing-the-pqc-migration': {
+      id: '/guides/implementing-the-pqc-migration'
+      path: '/guides/implementing-the-pqc-migration'
+      fullPath: '/guides/implementing-the-pqc-migration'
+      preLoaderRoute: typeof GuidesImplementingThePqcMigrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/managing-the-pqc-transition': {
+      id: '/guides/managing-the-pqc-transition'
+      path: '/guides/managing-the-pqc-transition'
+      fullPath: '/guides/managing-the-pqc-transition'
+      preLoaderRoute: typeof GuidesManagingThePqcTransitionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/preparing-for-the-quantum-era': {
+      id: '/guides/preparing-for-the-quantum-era'
+      path: '/guides/preparing-for-the-quantum-era'
+      fullPath: '/guides/preparing-for-the-quantum-era'
+      preLoaderRoute: typeof GuidesPreparingForTheQuantumEraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ImplementPqcRoute: ImplementPqcRoute,
+  PlanTheTransitionRoute: PlanTheTransitionRoute,
+  ResourcesRoute: ResourcesRoute,
+  UnderstandPqcRoute: UnderstandPqcRoute,
+  GuidesImplementingThePqcMigrationRoute:
+    GuidesImplementingThePqcMigrationRoute,
+  GuidesManagingThePqcTransitionRoute: GuidesManagingThePqcTransitionRoute,
+  GuidesPreparingForTheQuantumEraRoute: GuidesPreparingForTheQuantumEraRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
