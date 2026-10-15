@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ImplementPqcRouteImport } from './routes/implement-pqc'
 import { Route as PlanTheTransitionRouteImport } from './routes/plan-the-transition'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UnderstandPqcRouteImport } from './routes/understand-pqc'
 import { Route as GuidesImplementingThePqcMigrationRouteImport } from './routes/guides.implementing-the-pqc-migration'
 import { Route as GuidesManagingThePqcTransitionRouteImport } from './routes/guides.managing-the-pqc-transition'
@@ -42,6 +43,11 @@ const PlanTheTransitionRoute = PlanTheTransitionRouteImport.update({
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UnderstandPqcRoute = UnderstandPqcRouteImport.update({
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/implement-pqc': typeof ImplementPqcRoute
   '/plan-the-transition': typeof PlanTheTransitionRoute
   '/resources': typeof ResourcesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/understand-pqc': typeof UnderstandPqcRoute
   '/guides/implementing-the-pqc-migration': typeof GuidesImplementingThePqcMigrationRoute
   '/guides/managing-the-pqc-transition': typeof GuidesManagingThePqcTransitionRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/implement-pqc': typeof ImplementPqcRoute
   '/plan-the-transition': typeof PlanTheTransitionRoute
   '/resources': typeof ResourcesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/understand-pqc': typeof UnderstandPqcRoute
   '/guides/implementing-the-pqc-migration': typeof GuidesImplementingThePqcMigrationRoute
   '/guides/managing-the-pqc-transition': typeof GuidesManagingThePqcTransitionRoute
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/implement-pqc': typeof ImplementPqcRoute
   '/plan-the-transition': typeof PlanTheTransitionRoute
   '/resources': typeof ResourcesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/understand-pqc': typeof UnderstandPqcRoute
   '/guides/implementing-the-pqc-migration': typeof GuidesImplementingThePqcMigrationRoute
   '/guides/managing-the-pqc-transition': typeof GuidesManagingThePqcTransitionRoute
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/implement-pqc'
     | '/plan-the-transition'
     | '/resources'
+    | '/sitemap.xml'
     | '/understand-pqc'
     | '/guides/implementing-the-pqc-migration'
     | '/guides/managing-the-pqc-transition'
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/implement-pqc'
     | '/plan-the-transition'
     | '/resources'
+    | '/sitemap.xml'
     | '/understand-pqc'
     | '/guides/implementing-the-pqc-migration'
     | '/guides/managing-the-pqc-transition'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/implement-pqc'
     | '/plan-the-transition'
     | '/resources'
+    | '/sitemap.xml'
     | '/understand-pqc'
     | '/guides/implementing-the-pqc-migration'
     | '/guides/managing-the-pqc-transition'
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   ImplementPqcRoute: typeof ImplementPqcRoute
   PlanTheTransitionRoute: typeof PlanTheTransitionRoute
   ResourcesRoute: typeof ResourcesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UnderstandPqcRoute: typeof UnderstandPqcRoute
   GuidesImplementingThePqcMigrationRoute: typeof GuidesImplementingThePqcMigrationRoute
   GuidesManagingThePqcTransitionRoute: typeof GuidesManagingThePqcTransitionRoute
@@ -187,6 +200,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/understand-pqc': {
       id: '/understand-pqc'
       path: '/understand-pqc'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImplementPqcRoute: ImplementPqcRoute,
   PlanTheTransitionRoute: PlanTheTransitionRoute,
   ResourcesRoute: ResourcesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   UnderstandPqcRoute: UnderstandPqcRoute,
   GuidesImplementingThePqcMigrationRoute:
     GuidesImplementingThePqcMigrationRoute,
