@@ -1,6 +1,6 @@
 # Round 1
-- [ ] Complete homepage and shared design system
-- [ ] Integrate official partner assets, header and footer
-- [ ] Centralise metadata, destinations and missing-link states
-- [ ] Add canonical starter pages and topic redirects
-- [ ] Verify navigation, downloads, scroll, assets and responsive layouts
+- [x] Complete homepage and shared design system
+- [x] Integrate official partner assets, header and footer
+- [x] Centralise metadata, destinations and missing-link states
+- [x] Add canonical starter pages and topic redirects
+- [x] Verify navigation, downloads, scroll, assets and responsive layouts
