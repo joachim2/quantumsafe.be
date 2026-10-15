@@ -2,7 +2,7 @@ import type { GuideRoadmapItem } from "@/content/guides/types";
 import { Heading } from "./Heading";
 
 /** Semantic ordered list, styled as a horizontal timeline on wide screens and vertical on mobile. */
-export function GuideRoadmap({ items, title, level }: { items: GuideRoadmapItem[]; title?: string; level: number }) {
+export function GuideRoadmap({ items, title, level }: { items: GuideRoadmapItem[]; title?: string | undefined; level: number }) {
   const itemLevel = title ? level + 1 : level;
   return (
     <div className="guide-block">

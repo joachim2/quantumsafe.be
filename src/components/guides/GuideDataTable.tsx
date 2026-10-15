@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-export function GuideDataTable({ caption, columns, rows, rowHeaders = true, note }: { caption: string; columns: string[]; rows: string[][]; rowHeaders?: boolean; note?: string }) {
+export function GuideDataTable({ caption, columns, rows, rowHeaders = true, note }: { caption: string; columns: string[]; rows: string[][]; rowHeaders?: boolean | undefined; note?: string | undefined }) {
   const id = useId();
   return (
     <figure className="guide-figure">

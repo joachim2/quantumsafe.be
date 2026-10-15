@@ -19,7 +19,7 @@ export type GuideRoadmapItem = {
 };
 
 export type GuideBlock =
-  | { type: "prose"; paragraphs: string[] }
+  | { type: "prose"; title?: string; paragraphs: string[] }
   | { type: "bullets"; title?: string; ordered?: boolean; items: string[] }
   | { type: "callout"; variant: CalloutVariant; title: string; paragraphs: string[]; items?: string[] }
   | { type: "cards"; title?: string; columns?: 2 | 3; items: GuideCardItem[] }
