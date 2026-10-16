@@ -280,7 +280,7 @@ export const volume2: GuideContent = {
         {
           type: "table",
           caption:
-            "RACI for key PQC program activities (A = Accountable, R = Responsible, C = Consulted, I = Informed)",
+            "Roles and Responsibilities for key PQC program activities",
           columns: ["Activity", "Accountable", "Responsible / coordinating", "Consulted / informed"],
           rows: [
             [
