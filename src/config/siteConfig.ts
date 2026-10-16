@@ -34,14 +34,17 @@ export const routeAliases = {
   "/plan-the-transition": volumes[1].pageUrl,
   "/implement-pqc": volumes[2].pageUrl,
 } as const;
-export const navigation = [
+/** External Quantum Circle community forum destination. */
+export const forumUrl = "https://community.quantumcircle.eu/c/feed-4469f7";
+export type NavItem = { label: string; to: string; external?: boolean };
+export const navigation: readonly NavItem[] = [
   { label: "Home", to: "/" },
   { label: "Understand PQC", to: "/understand-pqc" },
   { label: "Plan the Transition", to: "/plan-the-transition" },
   { label: "Implement PQC", to: "/implement-pqc" },
-  { label: "Resources", to: "/resources" },
+  { label: "Forum", to: forumUrl, external: true },
   { label: "About", to: "/about" },
-] as const;
+];
 export type Resource = { title: string; description: string; category: string; date?: string; url: string };
 export const siteConfig = {
   title: "PQC Knowledge Platform",
@@ -110,4 +113,4 @@ export function guideHead(volume: Volume) {
   };
 }
 /** Canonical, indexable pages for the sitemap. Topic aliases are excluded on purpose. */
-export const sitemapPaths = ["/", ...volumes.map(v => v.pageUrl), "/resources", "/about"];
+export const sitemapPaths = ["/", ...volumes.map(v => v.pageUrl), "/about"];
