@@ -206,8 +206,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .volume-card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card); box-shadow: var(--card-shadow); display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s; }
 .volume-card:hover { transform: translateY(-4px); }
 .volume-cover { height: 171px; padding: 25px 27px; color: var(--ink-foreground); position: relative; overflow: hidden; }
-.volume-cover.understand { background: radial-gradient(circle at 78% 55%, oklch(0.42 0.16 345 / .55), transparent 60%), oklch(0.22 0.07 320); }
-.volume-cover.understand .cover-art { color: oklch(0.72 0.2 345); }
+.volume-cover.understand { background: radial-gradient(circle at 78% 55%, oklch(0.34 0.15 345 / .5), transparent 60%), oklch(0.16 0.055 320); }
+.volume-cover.understand .cover-art { color: oklch(0.7 0.19 345); }
 .volume-cover.plan { background: linear-gradient(135deg, oklch(0.78 0.12 220), oklch(0.66 0.14 235)); }
 .volume-cover.plan .cover-art { color: oklch(0.3 0.09 255); }
 .volume-cover.implement { background: radial-gradient(circle at 78% 55%, oklch(0.45 0.13 250 / .5), transparent 60%), oklch(0.24 0.08 258); }
@@ -274,8 +274,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .guide-hero { position: relative; overflow: hidden; background: var(--ink); color: var(--ink-foreground); padding-block: 40px 64px; border-bottom: 4px solid var(--guide-navy); }
 .guide-hero.plan { border-bottom-color: var(--guide-teal); }
 .guide-hero.implement { border-bottom-color: var(--guide-blue); }
-.guide-hero.understand { background: radial-gradient(circle at 82% 45%, oklch(0.42 0.16 345 / .55), transparent 55%), oklch(0.22 0.07 320); }
-.guide-hero.understand .cover-art { color: oklch(0.72 0.2 345); }
+.guide-hero.understand { background: radial-gradient(circle at 82% 45%, oklch(0.34 0.15 345 / .5), transparent 55%), oklch(0.16 0.055 320); border-bottom-color: oklch(0.42 0.16 345); }
+.guide-hero.understand .cover-art { color: oklch(0.7 0.19 345); }
+.guide-hero.understand .eyebrow, .guide-hero.understand .guide-subtitle, .guide-hero.understand .guide-breadcrumb a:hover { color: oklch(0.85 0.09 355); }
 .guide-hero.plan { background: radial-gradient(circle at 82% 45%, oklch(0.5 0.13 225 / .55), transparent 55%), oklch(0.27 0.08 245); }
 .guide-hero.plan .cover-art { color: oklch(0.8 0.12 215); }
 .guide-hero.implement { background: radial-gradient(circle at 82% 45%, oklch(0.45 0.13 250 / .5), transparent 55%), oklch(0.24 0.08 258); }
