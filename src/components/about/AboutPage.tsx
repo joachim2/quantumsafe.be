@@ -24,13 +24,13 @@ export function AboutPage() {
 
     {/* Sections C & D — The organisations behind the initiative */}
     <div className="mt-16 grid gap-12 md:grid-cols-2">
-      <section className="border-t border-border pt-10" aria-labelledby="about-coalition">
+      <section className="about-partner border-t border-border pt-10" aria-labelledby="about-coalition">
         <img src={coalition.logoUrl} alt={coalition.name} className={`${coalition.className} mb-6`} loading="lazy" />
         <h2 id="about-coalition" className="text-xl">{coalition.name}</h2>
         <p className="mt-4 text-sm leading-8 text-muted-foreground">The Cyber Security Coalition is a partnership between players from the academic world, the public authorities and the private sector, joining forces in the fight against cybercrime. Its mission is to bolster Belgium's cyber security resilience by building a strong cyber security ecosystem at national level, bringing together skills and expertise on a trust-based platform for information exchange and joint actions.</p>
         <Button asChild variant="link" className="mt-5 h-auto p-0 text-xs text-primary"><a href={coalition.websiteUrl} target="_blank" rel="noopener noreferrer">Visit {coalition.name}<ArrowUpRight /></a></Button>
       </section>
-      <section className="border-t border-border pt-10" aria-labelledby="about-quantum-circle">
+      <section className="about-partner border-t border-border pt-10" aria-labelledby="about-quantum-circle">
         <img src={quantumCircle.logoUrl} alt={quantumCircle.name} className={`${quantumCircle.className} mb-6`} loading="lazy" />
         <h2 id="about-quantum-circle" className="text-xl">{quantumCircle.name}</h2>
         <p className="mt-4 text-sm leading-8 text-muted-foreground">Quantum Circle is Belgium's non-profit quantum community, founded in 2024, where industry, academia, technology providers and government come together around one question: how will quantum impact my organisation? By connecting world-class research with business leaders and policymakers, the community encourages knowledge exchange and collaboration across the wider quantum ecosystem, in Belgium and beyond.</p>

@@ -229,6 +229,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .footer-partners { justify-content: flex-start; gap: 25px; margin-top: 24px; }
 .footer-partners .coalition-logo { width: 65px; height: 70px; }
 .footer-partners .quantum-logo { width: 107px; height: 60px; }
+.about-partner .coalition-logo { width: 124px; height: 120px; object-fit: contain; }
+.about-partner .quantum-logo { width: 205px; height: 90px; object-fit: contain; }
 .footer-bottom { margin-top: 45px; border-top: 1px solid var(--border); padding-block: 20px; font-size: 11px; color: var(--muted-foreground); }
 .starter-content { min-height: 440px; padding-block: 64px 80px; }
 @media (max-width: 1100px) {
