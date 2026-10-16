@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, ArrowUpRight, ShieldCheck, Waypoints, Code2, Users, Compass, BookOpen } from "lucide-react";
+import { ArrowDown, ArrowRight, ShieldCheck, Waypoints, Code2, Users, Compass, BookOpen } from "lucide-react";
 import lattice from "@/assets/quantum-lattice.jpg";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
