@@ -5,12 +5,15 @@ import { isConfiguredUrl, siteConfig, type Volume } from "@/config/siteConfig";
 import type { GuideContent } from "@/content/guides/types";
 import { ChapterNav } from "./ChapterNav";
 import { GuideSection } from "./GuideSection";
+import { CoverArt } from "@/components/home/GuideSections";
 
 export function GuideHero({ volume, purpose, firstSectionId }: { volume: Volume; purpose: string; firstSectionId: string }) {
   const isDraft = volume.status === "draft";
+  const artIndex = siteConfig.volumes.findIndex(v => v.id === volume.id);
   return (
     <header className={`guide-hero ${volume.theme}`}>
-      <div className="site-container">
+      <CoverArt index={artIndex} />
+      <div className="site-container relative">
         <nav aria-label="Breadcrumb" className="guide-breadcrumb">
           <ol>
             <li><Link to={siteConfig.homeUrl}>Home</Link><ChevronRight className="size-3" aria-hidden="true" /></li>

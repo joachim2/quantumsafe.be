@@ -3,7 +3,7 @@ import { ArrowUpRight, FileText, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig, isConfiguredUrl } from "@/config/siteConfig";
 
-function CoverArt({ index }: { index: number }) {
+export function CoverArt({ index }: { index: number }) {
   if (index === 0) return <svg className="cover-art" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1"><ellipse cx="60" cy="60" rx="52" ry="18" /><ellipse cx="60" cy="60" rx="52" ry="18" transform="rotate(60 60 60)" /><ellipse cx="60" cy="60" rx="52" ry="18" transform="rotate(120 60 60)" /></g><circle cx="60" cy="60" r="6" fill="currentColor" /></svg>;
   if (index === 1) return <svg className="cover-art" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"><path d="M58 18v92" /><path d="M58 28h42l10 10-10 10H58z" /><path d="M58 58H20L10 68l10 10h38z" /></g></svg>;
   return <svg className="cover-art" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1.2"><rect x="10" y="40" width="30" height="30" rx="3" /><rect x="80" y="40" width="30" height="30" rx="3" /><path d="M40 55h40M70 47l10 8-10 8" /><path d="M25 40V22h70v18" strokeDasharray="3 4" /></g></svg>;
