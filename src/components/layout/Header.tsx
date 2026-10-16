@@ -21,9 +21,13 @@ export function Header() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [open]);
   const links = siteConfig.navigation.map(item => {
+    const className = open ? "block border-b border-border py-4 text-sm" : "nav-link";
+    if (item.external) {
+      return <a key={item.to} href={item.to} target="_blank" rel="noopener noreferrer" className={className} onClick={() => setOpen(false)}>{item.label}</a>;
+    }
     const destination = item.to in routeAliases ? routeAliases[item.to as keyof typeof routeAliases] : item.to;
     const active = pathname === destination;
-    return <Link key={item.to} to={item.to} className={open ? "block border-b border-border py-4 text-sm" : "nav-link"} data-active={active} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>{item.label}</Link>;
+    return <Link key={item.to} to={item.to} className={className} data-active={active} aria-current={active ? "page" : undefined} onClick={() => setOpen(false)}>{item.label}</Link>;
   });
   return <header className="site-header"><div className="site-container header-inner"><Brand /><nav aria-label="Main navigation" className="desktop-navigation">{links}</nav><PartnerLogos className="header-partners" /><Button ref={toggleRef} variant="ghost" size="icon" className="md:hidden" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(value => !value)}>{open ? <X /> : <Menu />}</Button></div>{open && <nav ref={menuRef} id="mobile-navigation" aria-label="Mobile navigation" className="site-container pb-5 md:hidden">{links}</nav>}</header>;
 }
