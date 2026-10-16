@@ -3,7 +3,8 @@ import { ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
 
-const [coalition, quantumCircle] = siteConfig.partners;
+const coalition = siteConfig.partners[0]!;
+const quantumCircle = siteConfig.partners[1]!;
 
 export function AboutPage() {
   return <div className="starter-content site-container">

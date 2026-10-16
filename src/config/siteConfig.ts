@@ -49,7 +49,7 @@ export type Resource = { title: string; description: string; category: string; d
 export const siteConfig = {
   title: "PQC Knowledge Platform",
   description: "Strategic, organisational and technical guidance to help organisations prepare for the quantum era and post-quantum cryptography.",
-  homeUrl: navigation[0].to,
+  homeUrl: navigation[0]!.to,
   guideSectionId: "pqc-guide",
   navigation,
   volumes,
