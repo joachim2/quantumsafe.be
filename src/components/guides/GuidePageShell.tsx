@@ -32,7 +32,7 @@ export function GuideHero({ volume, purpose, firstSectionId }: { volume: Volume;
         <div className="mt-8 flex flex-wrap gap-3">
           <Button asChild className="hero-cta mt-0"><a href={`#${firstSectionId}`}>Begin reading<ArrowDown className="ml-2" /></a></Button>
           {isConfiguredUrl(volume.pdfUrl) && (
-            <Button asChild variant="outline" className="hero-cta mt-0"><a href={volume.pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF<Download className="ml-2" /></a></Button>
+            <Button asChild variant="outline" className="hero-cta hero-cta--outline mt-0"><a href={volume.pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF<Download className="ml-2" /></a></Button>
           )}
         </div>
       </div>
