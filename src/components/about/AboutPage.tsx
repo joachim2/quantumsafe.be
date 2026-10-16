@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
 
@@ -38,19 +38,6 @@ export function AboutPage() {
       </section>
     </div>
 
-    {/* Section E — The three-volume PQC guide */}
-    <section className="mt-16 border-t border-border pt-10" aria-labelledby="about-volumes">
-      <h2 id="about-volumes" className="text-xl">From awareness to implementation</h2>
-      <p className="mt-4 max-w-2xl text-sm leading-8 text-muted-foreground">The platform organises its guidance into three complementary volumes, each aimed at a different step of the journey towards quantum readiness.</p>
-      <div className="mt-8 grid gap-8 md:grid-cols-3">
-        {siteConfig.volumes.map(volume => <article className="border-t border-border pt-6" key={volume.id}>
-          <span className="text-[11px] text-teal">{volume.number}</span>
-          <h3 className="mt-2 text-base">{volume.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-muted-foreground">{volume.description}</p>
-          <Button asChild variant="link" className="mt-4 h-auto p-0 text-xs text-primary"><Link to={volume.pageUrl}>Read {volume.volumeLabel}<ArrowRight className="ml-1" /></Link></Button>
-        </article>)}
-      </div>
-    </section>
 
     {/* Section F — A shared objective */}
     <section className="mt-16 border-t border-border pt-10" aria-labelledby="about-together">
