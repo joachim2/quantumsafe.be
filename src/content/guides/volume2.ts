@@ -1,3 +1,4 @@
+import { priorityCalculatorUrl } from "@/config/siteConfig";
 import type { GuideContent } from "./types";
 
 export const volume2: GuideContent = {
@@ -810,7 +811,7 @@ export const volume2: GuideContent = {
     {
       title: "PQC Migration Priority Calculator",
       publisher: "quantumsafe.be",
-      url: "https://quantumsafe.be/prioritise",
+      url: priorityCalculatorUrl,
     },
     {
       title: "The PQC Migration Handbook",

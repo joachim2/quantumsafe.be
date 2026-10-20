@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowLeft, ArrowRight, ChevronRight, Download, PenLine } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, Calculator, ChevronRight, Download, PenLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { isConfiguredUrl, siteConfig, type Volume } from "@/config/siteConfig";
 import type { GuideContent } from "@/content/guides/types";
@@ -33,6 +33,12 @@ export function GuideHero({ volume, purpose, firstSectionId }: { volume: Volume;
           <Button asChild className="hero-cta mt-0"><a href={`#${firstSectionId}`}>Begin reading<ArrowDown className="ml-2" /></a></Button>
           {isConfiguredUrl(volume.pdfUrl) && (
             <Button asChild variant="outline" className="hero-cta hero-cta--outline mt-0"><a href={volume.pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF<Download className="ml-2" /></a></Button>
+          )}
+          {isConfiguredUrl(volume.workbookUrl) && (
+            <Button asChild variant="outline" className="hero-cta hero-cta--outline mt-0"><a href={volume.workbookUrl} target="_blank" rel="noopener noreferrer">Download planning workbook (Excel)<Download className="ml-2" /></a></Button>
+          )}
+          {isConfiguredUrl(volume.calculatorUrl) && (
+            <Button asChild variant="outline" className="hero-cta hero-cta--outline mt-0"><a href={volume.calculatorUrl} target="_blank" rel="noopener noreferrer">PQC migration priority calculator<Calculator className="ml-2" /></a></Button>
           )}
         </div>
       </div>

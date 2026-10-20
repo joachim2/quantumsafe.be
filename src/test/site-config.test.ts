@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
 import { routeTree } from "@/routeTree.gen";
-import { siteConfig, routeAliases, isConfiguredUrl, forumUrl } from "@/config/siteConfig";
+import { siteConfig, routeAliases, isConfiguredUrl, forumUrl, priorityCalculatorUrl } from "@/config/siteConfig";
+import { volume2 } from "@/content/guides/volume2";
 
 describe("PQC site foundation", () => {
   it("matches every navigation and canonical volume destination", () => {
@@ -29,6 +30,18 @@ describe("PQC site foundation", () => {
     expect(isConfiguredUrl("javascript:alert(1)")).toBe(false);
     expect(isConfiguredUrl("https://example.org/volume.pdf")).toBe(true);
     expect(isConfiguredUrl("/documents/volume.pdf")).toBe(true);
+  });
+  it("publishes the Volume 2 planning workbook and priority calculator only", () => {
+    const [first, second, third] = siteConfig.volumes;
+    expect(isConfiguredUrl(second.workbookUrl)).toBe(true);
+    expect(second.workbookUrl!.endsWith("volume-2-planning-workbook.xlsx")).toBe(true);
+    expect(second.workbookUrl).not.toEqual(second.pdfUrl);
+    expect(second.workbookUrl).not.toEqual(second.pageUrl);
+    expect(second.calculatorUrl).toBe("https://quantumsafe.be/prioritise/");
+    expect(priorityCalculatorUrl).toBe("https://quantumsafe.be/prioritise/");
+    expect([first, third].every(volume => volume.workbookUrl === null && volume.calculatorUrl === null)).toBe(true);
+    // The Volume 2 reference list points at the same calculator destination as the config.
+    expect(volume2.references.find(ref => ref.title === "PQC Migration Priority Calculator")?.url).toBe(priorityCalculatorUrl);
   });
   it("links Forum directly to the Quantum Circle community forum", () => {
     expect(forumUrl).toBe("https://community.quantumcircle.eu/c/feed-4469f7");

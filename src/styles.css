@@ -220,7 +220,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .volume-description { font-size: 14px; line-height: 1.8; margin-top: 14px; color: var(--muted-foreground); }
 .volume-audience { margin-top: auto; padding-top: 24px; }
 .volume-link { padding: 0; justify-content: space-between; height: 44px; color: var(--teal); margin-top: 24px; border-top: 1px solid var(--border); padding-top: 16px; border-radius: 0; font-size: 13px; }
-.volume-download { margin-top: 2px; border-top: 1px solid var(--border); padding-top: 12px; }
+.volume-download { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; margin-top: 2px; border-top: 1px solid var(--border); padding-top: 12px; }
+.volume-download-link { height: auto; min-height: 18px; padding: 0; justify-content: flex-start; border-radius: 0; white-space: normal; text-align: left; font-size: 12px; line-height: 1.5; color: var(--teal); }
+.volume-download-link svg { width: 14px; height: 14px; }
 .download-band { border-top: 1px solid var(--border); margin-top: 44px; padding-top: 34px; }
 .download-option { display: flex; align-items: center; gap: 12px; padding-block: 15px; }
 .audience-section { background: var(--ink); color: var(--ink-foreground); }
@@ -275,6 +277,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .guide-hero { position: relative; overflow: hidden; background: var(--ink); color: var(--ink-foreground); padding-block: 40px 64px; border-bottom: 4px solid var(--guide-navy); }
 .guide-hero.plan { border-bottom-color: var(--guide-teal); }
 .guide-hero.implement { border-bottom-color: var(--guide-blue); }
+/* Outline hero buttons sit on a dark volume header: keep them transparent with light text. */
+.guide-hero .hero-cta--outline { background-color: transparent; color: var(--ink-foreground); border-color: color-mix(in oklab, var(--ink-foreground) 45%, transparent); }
+.guide-hero .hero-cta--outline:hover { background-color: color-mix(in oklab, var(--ink-foreground) 14%, transparent); color: var(--ink-foreground); }
 .guide-hero.understand { background: radial-gradient(circle at 82% 45%, oklch(0.34 0.15 345 / .5), transparent 55%), oklch(0.16 0.055 320); border-bottom-color: oklch(0.42 0.16 345); }
 .guide-hero.understand .cover-art { color: oklch(0.7 0.19 345); }
 .guide-hero.understand .eyebrow, .guide-hero.understand .guide-subtitle, .guide-hero.understand .guide-breadcrumb a:hover { color: oklch(0.85 0.09 355); }
