@@ -58,11 +58,6 @@ export const siteConfig = {
     { name: "Cyber Security Coalition", websiteUrl: "https://cybersecuritycoalition.be/", logoUrl: coalitionLogo.url, className: "coalition-logo" },
     { name: "Quantum Circle", websiteUrl: "https://quantumcircle.eu/", logoUrl: quantumLogo.url, className: "quantum-logo" },
   ],
-  principles: [
-    { title: "Understand the threat", description: "Learn why quantum computing matters for today's cryptography." },
-    { title: "Plan the transition", description: "Explore governance, risk, planning and investment considerations." },
-    { title: "Prepare for implementation", description: "Discover the technical and operational aspects of PQC migration." },
-  ],
   pathways: [
     { title: "For decision-makers", description: "Understand strategic urgency, organisational exposure and the actions needed to prepare.", cta: "Explore strategic guidance", pageUrl: volumes[0].pageUrl },
     { title: "For transition teams", description: "Understand governance, risk assessment, planning, prioritisation and investment.", cta: "Explore transition planning", pageUrl: volumes[1].pageUrl },
