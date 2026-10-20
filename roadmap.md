@@ -14,3 +14,8 @@
 - [x] Complete About page (initiative, both organisations, three volumes, shared objective)
 - [x] Replace Resources with external Forum link in header, mobile menu and footer
 - [x] Redirect legacy /resources to the forum and verify no regressions
+
+# Round 4
+- [x] Publish the Volume 2 planning workbook (Excel) as a downloadable asset
+- [x] Add Volume 2 priority calculator link to the card and volume page, centralised in siteConfig
+- [x] Keep outline hero buttons readable on every volume header
