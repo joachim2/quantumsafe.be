@@ -17,9 +17,14 @@ describe("PQC site foundation", () => {
   it("keeps webpage and PDF URLs independent and placeholders non-clickable", () => {
     for (const volume of siteConfig.volumes) {
       expect(volume.pdfUrl).not.toEqual(volume.pageUrl);
-      expect(isConfiguredUrl(volume.pdfUrl)).toBe(false);
       expect(isConfiguredUrl(volume.pageUrl)).toBe(true);
     }
+    // Volumes 1 and 2 ship their official PDF; Volume 3 stays an unconfigured placeholder until published.
+    expect(isConfiguredUrl(siteConfig.volumes[0].pdfUrl)).toBe(true);
+    expect(isConfiguredUrl(siteConfig.volumes[1].pdfUrl)).toBe(true);
+    expect(siteConfig.volumes[0].pdfUrl!.endsWith("volume-1-preparing-for-the-quantum-era.pdf")).toBe(true);
+    expect(siteConfig.volumes[1].pdfUrl!.endsWith("volume-2-managing-the-pqc-transition.pdf")).toBe(true);
+    expect(isConfiguredUrl(siteConfig.volumes[2].pdfUrl)).toBe(false);
     expect(isConfiguredUrl("")).toBe(false);
     expect(isConfiguredUrl("javascript:alert(1)")).toBe(false);
     expect(isConfiguredUrl("https://example.org/volume.pdf")).toBe(true);
