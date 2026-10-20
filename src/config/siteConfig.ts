@@ -2,6 +2,7 @@ import coalitionLogo from "@/assets/logo_csc_png.png.asset.json";
 import quantumLogo from "@/assets/quantum_circle_logo_2024_pos.svg.asset.json";
 import volume1Pdf from "@/assets/volume-1-guide.pdf.asset.json";
 import volume2Pdf from "@/assets/volume-2-guide.pdf.asset.json";
+import volume2Workbook from "@/assets/volume-2-planning-workbook.xlsx.asset.json";
 
 export type GuideStatus = "published" | "draft";
 export type VolumeDefinition = {
@@ -21,9 +22,16 @@ export type VolumeDefinition = {
   pageUrl: string;
   /** Independent PDF destination. Null until a real PDF is published. */
   pdfUrl: string | null;
+  /** Planning workbook (Excel) download. Null when the volume publishes none. */
+  workbookUrl: string | null;
+  /** Priority calculator destination. Null when the volume publishes none. */
+  calculatorUrl: string | null;
   theme: "understand" | "plan" | "implement";
   seo: { title: string; description: string };
 };
+/** PQC migration priority calculator destination, shared by config and Volume 2 references. */
+export const priorityCalculatorUrl = "https://quantumsafe.be/prioritise/";
+
 
 export const volumes = [
   { id: "volume-1", number: "01", volumeLabel: "Volume 01", title: "Preparing for the Quantum Era", subtitle: "Updated Strategic Guidance", description: "Understand the quantum threat, the strategic urgency of post-quantum cryptography, potential timelines and the first steps towards quantum readiness.", audience: "Decision-makers and organisational leaders.", audienceList: ["Decision-makers", "Executives", "CIOs", "CISOs", "IT leaders"], version: "Updated edition", status: "published", publicationLabel: "Published guidance", pageUrl: "/guides/preparing-for-the-quantum-era", pdfUrl: volume1Pdf.url, theme: "understand", seo: { title: "Volume 1: Preparing for the Quantum Era", description: "Strategic PQC guidance for decision-makers: the quantum threat, EU migration milestones for 2026, 2030 and 2035, nine strategic recommendations and an executive action plan." } },
