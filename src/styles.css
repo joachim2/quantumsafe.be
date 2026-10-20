@@ -277,6 +277,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .guide-hero { position: relative; overflow: hidden; background: var(--ink); color: var(--ink-foreground); padding-block: 40px 64px; border-bottom: 4px solid var(--guide-navy); }
 .guide-hero.plan { border-bottom-color: var(--guide-teal); }
 .guide-hero.implement { border-bottom-color: var(--guide-blue); }
+/* Outline hero buttons sit on a dark volume header: keep them transparent with light text. */
+.guide-hero .hero-cta--outline { background-color: transparent; color: var(--ink-foreground); border-color: color-mix(in oklab, var(--ink-foreground) 45%, transparent); }
+.guide-hero .hero-cta--outline:hover { background-color: color-mix(in oklab, var(--ink-foreground) 14%, transparent); color: var(--ink-foreground); }
 .guide-hero.understand { background: radial-gradient(circle at 82% 45%, oklch(0.34 0.15 345 / .5), transparent 55%), oklch(0.16 0.055 320); border-bottom-color: oklch(0.42 0.16 345); }
 .guide-hero.understand .cover-art { color: oklch(0.7 0.19 345); }
 .guide-hero.understand .eyebrow, .guide-hero.understand .guide-subtitle, .guide-hero.understand .guide-breadcrumb a:hover { color: oklch(0.85 0.09 355); }
