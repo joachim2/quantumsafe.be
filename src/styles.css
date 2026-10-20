@@ -220,6 +220,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .volume-description { font-size: 14px; line-height: 1.8; margin-top: 14px; color: var(--muted-foreground); }
 .volume-audience { margin-top: auto; padding-top: 24px; }
 .volume-link { padding: 0; justify-content: space-between; height: 44px; color: var(--teal); margin-top: 24px; border-top: 1px solid var(--border); padding-top: 16px; border-radius: 0; font-size: 13px; }
+.volume-download { margin-top: 2px; border-top: 1px solid var(--border); padding-top: 12px; }
 .download-band { border-top: 1px solid var(--border); margin-top: 44px; padding-top: 34px; }
 .download-option { display: flex; align-items: center; gap: 12px; padding-block: 15px; }
 .audience-section { background: var(--ink); color: var(--ink-foreground); }
