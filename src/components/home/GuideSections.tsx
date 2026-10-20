@@ -1,13 +1,38 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Calculator, Download, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteConfig, isConfiguredUrl } from "@/config/siteConfig";
+import { siteConfig, isConfiguredUrl, type Volume } from "@/config/siteConfig";
 
 export function CoverArt({ index }: { index: number }) {
   if (index === 0) return <svg className="cover-art" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1"><ellipse cx="60" cy="60" rx="52" ry="18" /><ellipse cx="60" cy="60" rx="52" ry="18" transform="rotate(60 60 60)" /><ellipse cx="60" cy="60" rx="52" ry="18" transform="rotate(120 60 60)" /></g><circle cx="60" cy="60" r="6" fill="currentColor" /></svg>;
   if (index === 1) return <svg className="cover-art" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"><path d="M58 18v92" /><path d="M58 28h42l10 10-10 10H58z" /><path d="M58 58H20L10 68l10 10h38z" /></g></svg>;
   return <svg className="cover-art" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="1.2"><rect x="10" y="40" width="30" height="30" rx="3" /><rect x="80" y="40" width="30" height="30" rx="3" /><path d="M40 55h40M70 47l10 8-10 8" /><path d="M25 40V22h70v18" strokeDasharray="3 4" /></g></svg>;
 }
+
+/** One configured download or tool destination inside a volume card. */
+function VolumeResourceLink({ href, label, ariaLabel, icon: Icon }: { href: string; label: string; ariaLabel?: string; icon: LucideIcon }) {
+  return (
+    <Button asChild variant="link" className="volume-download-link">
+      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel}>{label}<Icon aria-hidden="true" /></a>
+    </Button>
+  );
+}
+
+/** Download row at the bottom of a volume card: only configured destinations become links. */
+function VolumeResources({ volume }: { volume: Volume }) {
+  return (
+    <div className="volume-download">
+      {isConfiguredUrl(volume.pdfUrl) ? (
+        <VolumeResourceLink href={volume.pdfUrl} label="Download (PDF)" ariaLabel={`Download Volume ${volume.number} as PDF`} icon={Download} />
+      ) : (
+        <p className="text-xs text-muted-foreground">PDF coming soon</p>
+      )}
+      {isConfiguredUrl(volume.workbookUrl) && <VolumeResourceLink href={volume.workbookUrl} label="Download planning workbook (Excel)" ariaLabel={`Download the Volume ${volume.number} planning workbook as Excel`} icon={Download} />}
+      {isConfiguredUrl(volume.calculatorUrl) && <VolumeResourceLink href={volume.calculatorUrl} label="PQC migration priority calculator" ariaLabel="Open the PQC migration priority calculator" icon={Calculator} />}
+    </div>
+  );
+}
+
 export function GuideSections() {
-  return <section id={siteConfig.guideSectionId} className="section-space bg-muted"><div className="site-container"><p className="eyebrow mb-3 text-teal">FROM AWARENESS TO ACTION</p><h2 className="section-heading">A structured guide to PQC</h2><p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">Three complementary volumes take you from understanding the quantum challenge to planning and implementing your PQC migration.</p><div className="mt-9 grid gap-6 md:grid-cols-3">{siteConfig.volumes.map((volume, index) => { return <article key={volume.number} className="volume-card"><div className={`volume-cover ${volume.theme}`}><p className="eyebrow mb-3">THE PQC GUIDE</p><span className="cover-number">{volume.number}</span><CoverArt index={index} /></div><div className="volume-body"><p className="eyebrow mb-3 flex flex-wrap items-center gap-2 text-teal">VOLUME {volume.number}{volume.status === "draft" && <span className="status-chip">Draft v{volume.version}</span>}</p><h3 className="volume-title">{volume.title}</h3><p className="volume-description">{volume.description}</p><div className="volume-audience"><p className="mb-2 text-[10px] font-bold uppercase text-muted-foreground">WHO IT'S FOR</p><p className="text-xs leading-6">{volume.audience}</p></div><Button asChild variant="link" className="volume-link"><Link to={volume.pageUrl} aria-label={`Learn more about ${volume.title}`}>Learn more<ArrowUpRight /></Link></Button><div className="volume-download">{isConfiguredUrl(volume.pdfUrl) ? <Button asChild variant="link" className="h-auto whitespace-normal p-0 text-xs text-teal"><a href={volume.pdfUrl} target="_blank" rel="noopener noreferrer" aria-label={`Download Volume ${volume.number} as PDF`}>Download (PDF)<Download /></a></Button> : <p className="text-xs text-muted-foreground">PDF coming soon</p>}</div></div></article>; })}</div></div></section>;
+  return <section id={siteConfig.guideSectionId} className="section-space bg-muted"><div className="site-container"><p className="eyebrow mb-3 text-teal">FROM AWARENESS TO ACTION</p><h2 className="section-heading">A structured guide to PQC</h2><p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">Three complementary volumes take you from understanding the quantum challenge to planning and implementing your PQC migration.</p><div className="mt-9 grid gap-6 md:grid-cols-3">{siteConfig.volumes.map((volume, index) => { return <article key={volume.number} className="volume-card"><div className={`volume-cover ${volume.theme}`}><p className="eyebrow mb-3">THE PQC GUIDE</p><span className="cover-number">{volume.number}</span><CoverArt index={index} /></div><div className="volume-body"><p className="eyebrow mb-3 flex flex-wrap items-center gap-2 text-teal">VOLUME {volume.number}{volume.status === "draft" && <span className="status-chip">Draft v{volume.version}</span>}</p><h3 className="volume-title">{volume.title}</h3><p className="volume-description">{volume.description}</p><div className="volume-audience"><p className="mb-2 text-[10px] font-bold uppercase text-muted-foreground">WHO IT'S FOR</p><p className="text-xs leading-6">{volume.audience}</p></div><Button asChild variant="link" className="volume-link"><Link to={volume.pageUrl} aria-label={`Learn more about ${volume.title}`}>Learn more<ArrowUpRight /></Link></Button><VolumeResources volume={volume} /></div></article>; })}</div></div></section>;
 }
