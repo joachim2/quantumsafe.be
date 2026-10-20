@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
 import { routeTree } from "@/routeTree.gen";
-import { siteConfig, routeAliases, isConfiguredUrl, forumUrl } from "@/config/siteConfig";
+import { siteConfig, routeAliases, isConfiguredUrl, forumUrl, priorityCalculatorUrl } from "@/config/siteConfig";
 
 describe("PQC site foundation", () => {
   it("matches every navigation and canonical volume destination", () => {
