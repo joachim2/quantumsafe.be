@@ -231,6 +231,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .pathway { border-top: 1px solid color-mix(in oklab, var(--ink-muted) 30%, transparent); padding-top: 26px; }
 .pathway-icon { width: 24px; height: 24px; color: var(--primary); margin-bottom: 22px; stroke-width: 1.4; }
 .empty-resources { display: flex; align-items: center; justify-content: center; gap: 13px; padding-block: 42px; border-block: 1px solid var(--border); margin-top: 32px; color: var(--muted-foreground); font-size: 14px; }
+.news-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.news-card { display: flex; flex-direction: column; }
+.news-card > :last-child { margin-top: auto; }
 .collaboration { border-top: 1px solid var(--border); }
 .site-footer { background: var(--muted); border-top: 1px solid var(--border); padding-top: 58px; }
 .footer-link { font-size: 12px; line-height: 1.8; color: var(--muted-foreground); display: block; }

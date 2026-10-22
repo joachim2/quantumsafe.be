@@ -55,7 +55,7 @@ export const navigation: readonly NavItem[] = [
   { label: "Forum", to: forumUrl, external: true },
   { label: "About", to: "/about" },
 ];
-export type Resource = { title: string; description: string; category: string; date?: string; url: string };
+export type Resource = { title: string; description: string; category: string; date?: string; /** Display text when the item spans more than one day. */ dateLabel?: string; url: string };
 export type Partner = { name: string; websiteUrl: string; linkedInUrl: string; logoUrl: string; className: string };
 /** People named as responsible publisher for the white paper initiative. */
 export const responsiblePublisher = [
@@ -81,6 +81,7 @@ export const siteConfig = {
   ],
   resources: [
     { title: "Cyber Resilience Session 8: Post-quantum cryptography", description: "KU Leuven Continue session on post-quantum cryptography, presented by Eric Michiels (IBM).", category: "Event", date: "2026-11-26", url: "https://puc.kuleuven.be/nl/opleiding/cyber_resilience_series_2026-8adjxg90vegep574/" },
+    { title: "Post-Quantum Cryptography Conference", description: "Amsterdam, The Netherlands | Hybrid", category: "Event", date: "2026-12-01", dateLabel: "1–3 December 2026", url: "https://pkic.org/events/2026/pqc-conference-amsterdam-nl/" },
   ] as Resource[],
   responsiblePublisher,
   footer: {
