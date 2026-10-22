@@ -51,17 +51,18 @@ describe("PQC site foundation", () => {
     expect(siteConfig.navigation.some(item => item.label === "Resources")).toBe(false);
     expect(siteConfig.footer.navigation).toBe(siteConfig.navigation);
   });
-  it("publishes only the announced KU Leuven Continue news item", () => {
-    expect(siteConfig.resources).toHaveLength(1);
-    const [news] = siteConfig.resources;
-    expect(news).toMatchObject({
-      title: "Cyber Resilience Session 8: Post-quantum cryptography",
-      category: "Event",
-      date: "2026-11-26",
-      url: "https://puc.kuleuven.be/nl/opleiding/cyber_resilience_series_2026-8adjxg90vegep574/",
-    });
-    expect(news!.description).toContain("Eric Michiels");
-    expect(isConfiguredUrl(news!.url)).toBe(true);
+  it("publishes only the announced news items", () => {
+    expect(siteConfig.resources).toHaveLength(2);
+    expect(siteConfig.resources.map(resource => resource.url)).toEqual([
+      "https://puc.kuleuven.be/nl/opleiding/cyber_resilience_series_2026-8adjxg90vegep574/",
+      "https://pkic.org/events/2026/pqc-conference-amsterdam-nl/",
+    ]);
+    const [leuven, conference] = siteConfig.resources;
+    expect(leuven).toMatchObject({ title: "Cyber Resilience Session 8: Post-quantum cryptography", category: "Event", date: "2026-11-26" });
+    expect(leuven!.description).toContain("Eric Michiels");
+    expect(conference).toMatchObject({ title: "Post-Quantum Cryptography Conference", category: "Event", date: "2026-12-01", dateLabel: "1–3 December 2026" });
+    expect(conference!.description).toContain("Amsterdam");
+    for (const resource of siteConfig.resources) expect(isConfiguredUrl(resource.url)).toBe(true);
   });
   it("links both partners to their official LinkedIn pages", () => {
     expect(siteConfig.partners.map(partner => partner.linkedInUrl)).toEqual([
