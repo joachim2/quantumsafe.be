@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
 
@@ -28,13 +28,19 @@ export function AboutPage() {
         <img src={coalition.logoUrl} alt={coalition.name} className={`${coalition.className} mb-6`} loading="lazy" />
         <h2 id="about-coalition" className="text-xl">{coalition.name}</h2>
         <p className="mt-4 text-sm leading-8 text-muted-foreground">The Cyber Security Coalition is a partnership between players from the academic world, the public authorities and the private sector, joining forces in the fight against cybercrime. Its mission is to bolster Belgium's cyber security resilience by building a strong cyber security ecosystem at national level, bringing together skills and expertise on a trust-based platform for information exchange and joint actions.</p>
-        <Button asChild variant="link" className="mt-5 h-auto p-0 text-xs text-primary"><a href={coalition.websiteUrl} target="_blank" rel="noopener noreferrer">Visit {coalition.name}<ArrowUpRight /></a></Button>
+        <div className="about-partner-links mt-5">
+          <Button asChild variant="link" className="h-auto p-0 text-xs text-primary"><a href={coalition.websiteUrl} target="_blank" rel="noopener noreferrer">Visit {coalition.name}<ArrowUpRight /></a></Button>
+          <Button asChild variant="link" className="h-auto p-0 text-xs text-primary"><a href={coalition.linkedInUrl} target="_blank" rel="noopener noreferrer"><Linkedin className="size-4" aria-hidden="true" />LinkedIn<ArrowUpRight /></a></Button>
+        </div>
       </section>
       <section className="about-partner border-t border-border pt-10" aria-labelledby="about-quantum-circle">
         <img src={quantumCircle.logoUrl} alt={quantumCircle.name} className={`${quantumCircle.className} mb-6`} loading="lazy" />
         <h2 id="about-quantum-circle" className="text-xl">{quantumCircle.name}</h2>
         <p className="mt-4 text-sm leading-8 text-muted-foreground">Quantum Circle is Belgium's non-profit quantum community, founded in 2024, where industry, academia, technology providers and government come together around one question: how will quantum impact my organisation? By connecting world-class research with business leaders and policymakers, the community encourages knowledge exchange and collaboration across the wider quantum ecosystem, in Belgium and beyond.</p>
-        <Button asChild variant="link" className="mt-5 h-auto p-0 text-xs text-primary"><a href={quantumCircle.websiteUrl} target="_blank" rel="noopener noreferrer">Visit {quantumCircle.name}<ArrowUpRight /></a></Button>
+        <div className="about-partner-links mt-5">
+          <Button asChild variant="link" className="h-auto p-0 text-xs text-primary"><a href={quantumCircle.websiteUrl} target="_blank" rel="noopener noreferrer">Visit {quantumCircle.name}<ArrowUpRight /></a></Button>
+          <Button asChild variant="link" className="h-auto p-0 text-xs text-primary"><a href={quantumCircle.linkedInUrl} target="_blank" rel="noopener noreferrer"><Linkedin className="size-4" aria-hidden="true" />LinkedIn<ArrowUpRight /></a></Button>
+        </div>
       </section>
     </div>
 
@@ -44,6 +50,14 @@ export function AboutPage() {
       <h2 id="about-together" className="text-xl">Building quantum readiness together</h2>
       <p className="mt-4 max-w-2xl text-sm leading-8 text-muted-foreground">Preparing for post-quantum cryptography is a journey that involves multiple disciplines. Decision-makers need to understand the strategic implications, transition teams need to establish plans and priorities, and technical teams need to prepare for implementation.</p>
       <p className="mt-4 max-w-2xl text-sm leading-8 text-muted-foreground">This platform aims to make that journey easier to understand by providing a structured starting point for learning, planning and taking the next steps.</p>
+    </section>
+
+    {/* Section G — Responsible publisher */}
+    <section className="mt-16 border-t border-border pt-10" aria-labelledby="about-publisher">
+      <h2 id="about-publisher" className="text-xl">Responsible publisher</h2>
+      <ul className="publisher-list">
+        {siteConfig.responsiblePublisher.map(person => <li key={person.name}><span className="publisher-name">{person.name}</span><span className="publisher-role">{person.role}, {person.organisation}</span></li>)}
+      </ul>
     </section>
   </div>;
 }

@@ -51,8 +51,35 @@ describe("PQC site foundation", () => {
     expect(siteConfig.navigation.some(item => item.label === "Resources")).toBe(false);
     expect(siteConfig.footer.navigation).toBe(siteConfig.navigation);
   });
-  it("does not invent resources or contact and legal destinations", () => {
-    expect(siteConfig.resources).toHaveLength(0);
+  it("publishes only the announced KU Leuven Continue news item", () => {
+    expect(siteConfig.resources).toHaveLength(1);
+    const [news] = siteConfig.resources;
+    expect(news).toMatchObject({
+      title: "Cyber Resilience Session 8: Post-quantum cryptography",
+      category: "Event",
+      date: "2026-11-26",
+      url: "https://puc.kuleuven.be/nl/opleiding/cyber_resilience_series_2026-8adjxg90vegep574/",
+    });
+    expect(news!.description).toContain("Eric Michiels");
+    expect(isConfiguredUrl(news!.url)).toBe(true);
+  });
+  it("links both partners to their official LinkedIn pages", () => {
+    expect(siteConfig.partners.map(partner => partner.linkedInUrl)).toEqual([
+      "https://be.linkedin.com/company/belgian-cyber-security-coalition",
+      "https://be.linkedin.com/company/quantumcircleeu",
+    ]);
+    for (const partner of siteConfig.partners) {
+      expect(isConfiguredUrl(partner.linkedInUrl)).toBe(true);
+      expect(partner.linkedInUrl).not.toBe(partner.websiteUrl);
+    }
+  });
+  it("names both responsible publishers from the white paper", () => {
+    expect(siteConfig.responsiblePublisher).toEqual([
+      { name: "Jan Sonck", role: "Quantum Ecosystem Manager", organisation: "Quantum Circle" },
+      { name: "Henk Dujardin", role: "CEO", organisation: "Cyber Security Coalition" },
+    ]);
+  });
+  it("does not invent contact and legal destinations", () => {
     expect(isConfiguredUrl(siteConfig.footer.contact.url)).toBe(false);
     expect(siteConfig.footer.legalLinks.every(link => !isConfiguredUrl(link.url))).toBe(true);
   });
