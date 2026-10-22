@@ -56,6 +56,12 @@ export const navigation: readonly NavItem[] = [
   { label: "About", to: "/about" },
 ];
 export type Resource = { title: string; description: string; category: string; date?: string; url: string };
+export type Partner = { name: string; websiteUrl: string; linkedInUrl: string; logoUrl: string; className: string };
+/** People named as responsible publisher for the white paper initiative. */
+export const responsiblePublisher = [
+  { name: "Jan Sonck", role: "Quantum Ecosystem Manager", organisation: "Quantum Circle" },
+  { name: "Henk Dujardin", role: "CEO", organisation: "Cyber Security Coalition" },
+] as const;
 export const siteConfig = {
   title: "PQC Knowledge Platform",
   description: "Strategic, organisational and technical guidance to help organisations prepare for the quantum era and post-quantum cryptography.",
@@ -65,15 +71,18 @@ export const siteConfig = {
   volumes,
   routeAliases,
   partners: [
-    { name: "Cyber Security Coalition", websiteUrl: "https://cybersecuritycoalition.be/", logoUrl: coalitionLogo.url, className: "coalition-logo" },
-    { name: "Quantum Circle", websiteUrl: "https://quantumcircle.eu/", logoUrl: quantumLogo.url, className: "quantum-logo" },
-  ],
+    { name: "Cyber Security Coalition", websiteUrl: "https://cybersecuritycoalition.be/", linkedInUrl: "https://be.linkedin.com/company/belgian-cyber-security-coalition", logoUrl: coalitionLogo.url, className: "coalition-logo" },
+    { name: "Quantum Circle", websiteUrl: "https://quantumcircle.eu/", linkedInUrl: "https://be.linkedin.com/company/quantumcircleeu", logoUrl: quantumLogo.url, className: "quantum-logo" },
+  ] as const satisfies readonly Partner[],
   pathways: [
     { title: "For decision-makers", description: "Understand strategic urgency, organisational exposure and the actions needed to prepare.", cta: "Explore strategic guidance", pageUrl: volumes[0].pageUrl },
     { title: "For transition teams", description: "Understand governance, risk assessment, planning, prioritisation and investment.", cta: "Explore transition planning", pageUrl: volumes[1].pageUrl },
     { title: "For technical teams", description: "Explore technical considerations, algorithms, architecture, interoperability and implementation.", cta: "Explore technical guidance", pageUrl: volumes[2].pageUrl },
   ],
-  resources: [] as Resource[],
+  resources: [
+    { title: "Cyber Resilience Session 8: Post-quantum cryptography", description: "KU Leuven Continue session on post-quantum cryptography, presented by Eric Michiels (IBM).", category: "Event", date: "2026-11-26", url: "https://puc.kuleuven.be/nl/opleiding/cyber_resilience_series_2026-8adjxg90vegep574/" },
+  ] as Resource[],
+  responsiblePublisher,
   footer: {
     navigation,
     volumes,

@@ -240,6 +240,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .footer-partners .quantum-logo { width: 107px; height: 60px; }
 .about-partner .coalition-logo { width: 124px; height: 120px; object-fit: contain; }
 .about-partner .quantum-logo { width: 205px; height: 90px; object-fit: contain; }
+.about-partner-links { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.about-partner-links svg { width: 14px; height: 14px; }
+.publisher-list { display: grid; gap: 14px; margin-top: 18px; }
+.publisher-list li { display: grid; gap: 2px; }
+.publisher-name { font-size: 14px; font-weight: 600; color: var(--foreground); }
+.publisher-role { font-size: 13px; color: var(--muted-foreground); }
 .footer-bottom { margin-top: 45px; border-top: 1px solid var(--border); padding-block: 20px; font-size: 11px; color: var(--muted-foreground); }
 .starter-content { min-height: 440px; padding-block: 64px 80px; }
 @media (max-width: 1100px) {

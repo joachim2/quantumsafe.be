@@ -19,3 +19,8 @@
 - [x] Publish the Volume 2 planning workbook (Excel) as a downloadable asset
 - [x] Add Volume 2 priority calculator link to the card and volume page, centralised in siteConfig
 - [x] Keep outline hero buttons readable on every volume header
+
+# Round 5
+- [x] Show both responsible publishers on the About page
+- [x] Add LinkedIn links for both partners
+- [x] Rename the homepage insights section to News and publish the KU Leuven Continue event
