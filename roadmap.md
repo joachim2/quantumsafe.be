@@ -24,3 +24,4 @@
 - [x] Show both responsible publishers on the About page
 - [x] Add LinkedIn links for both partners
 - [x] Rename the homepage insights section to News and publish the KU Leuven Continue event
+- [x] Update the News label and add the PKIC Post-Quantum Cryptography Conference
