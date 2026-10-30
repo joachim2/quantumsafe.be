@@ -270,7 +270,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
   .desktop-navigation { gap: 20px; justify-content: flex-end; }
 }
 @media (max-width: 1023px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-community { text-align: left; margin-top: 44px; }
+  .hero-community h2, .hero-community .hero-copy { margin-left: 0; max-width: 485px; }
+  .hero-community .hero-cta { justify-self: start; }
   .hero { min-height: 0; }
 }
 @media (max-width: 767px) {
@@ -284,7 +287,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
   .hero h1 { max-width: 440px; }
   .hero-copy { font-size: 15px; max-width: 420px; }
   .hero-bottom { flex-wrap: wrap; font-size: 10px; }
-  .hero-community { padding: 26px; }
   .volume-title { min-height: 0; }
   .volume-audience { padding-top: 22px; }
   .volume-cover { height: 155px; }
