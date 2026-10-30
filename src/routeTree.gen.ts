@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ImplementPqcRouteImport } from './routes/implement-pqc'
 import { Route as PlanTheTransitionRouteImport } from './routes/plan-the-transition'
 import { Route as ResourcesRouteImport } from './routes/resources'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImplementPqcRoute = ImplementPqcRouteImport.update({
@@ -77,6 +83,7 @@ const GuidesPreparingForTheQuantumEraRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
   '/implement-pqc': typeof ImplementPqcRoute
   '/plan-the-transition': typeof PlanTheTransitionRoute
   '/resources': typeof ResourcesRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
   '/implement-pqc': typeof ImplementPqcRoute
   '/plan-the-transition': typeof PlanTheTransitionRoute
   '/resources': typeof ResourcesRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/community': typeof CommunityRoute
   '/implement-pqc': typeof ImplementPqcRoute
   '/plan-the-transition': typeof PlanTheTransitionRoute
   '/resources': typeof ResourcesRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/community'
     | '/implement-pqc'
     | '/plan-the-transition'
     | '/resources'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/community'
     | '/implement-pqc'
     | '/plan-the-transition'
     | '/resources'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/community'
     | '/implement-pqc'
     | '/plan-the-transition'
     | '/resources'
@@ -153,6 +165,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CommunityRoute: typeof CommunityRoute
   ImplementPqcRoute: typeof ImplementPqcRoute
   PlanTheTransitionRoute: typeof PlanTheTransitionRoute
   ResourcesRoute: typeof ResourcesRoute
@@ -177,6 +190,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/implement-pqc': {
@@ -241,6 +261,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CommunityRoute: CommunityRoute,
   ImplementPqcRoute: ImplementPqcRoute,
   PlanTheTransitionRoute: PlanTheTransitionRoute,
   ResourcesRoute: ResourcesRoute,
