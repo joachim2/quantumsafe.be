@@ -212,8 +212,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-
 .hero-community .hero-copy { margin-left: auto; }
 .hero-main .hero-cta { justify-self: start; }
 .hero-community .hero-cta { justify-self: end; }
-/* The dark teal is fine on light pages, but too weak on the hero image. */
-.hero .eyebrow.text-teal { color: color-mix(in oklab, var(--teal) 45%, var(--ink-foreground)); }
+/* The dark teal is fine on light pages, but too weak on the hero image: use a bright teal here. */
+.hero .eyebrow.text-teal { color: color-mix(in oklab, var(--teal) 30%, var(--primary)); }
 .community-goals { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 .community-goal { border: 1px solid var(--border); border-radius: 12px; padding: 26px; background: var(--card); }
 .community-goal-icon { width: 26px; height: 26px; color: var(--teal); margin-bottom: 14px; }
